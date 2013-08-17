@@ -1,1 +1,1 @@
-Just some code for academic objetives
+Just some code with academic purposes
