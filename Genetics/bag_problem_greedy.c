@@ -20,7 +20,7 @@ struct objeto objetos[10];
 void main(){
 	int vol_mochi = 4200;
 	int max_vol=0;
-	int i,k,m;
+	int i;
 	int max_precio=0;
 	
 	printf("\n");
@@ -79,7 +79,11 @@ for (i=0;i<10;i++){
 void calculaProporcion(){
 	int i;
 	for (i=0;i<10;i++)
+<<<<<<< HEAD
 		objetos[i].proporcion = (double)objetos[i].valor/(double)objetos[i].vol;   
+=======
+		objetos[i].proporcion = (float)objetos[i].valor/(float)objetos[i].vol;   
+>>>>>>> 20061866231f33a8f647f70d8f838781f18e1c70
 }
 
 void ordenaObjetos(){
