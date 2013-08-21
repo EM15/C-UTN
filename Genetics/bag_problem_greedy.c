@@ -60,12 +60,17 @@ void main(){
 	
 	calculaProporcion();
 	ordenaObjetos();
+for (i=0;i<10;i++){
+        printf("Objeto %d, volumen: %d, valor: %d, prop: %g\n", objetos[i].nroobjeto, objetos[i].vol, objetos[i].valor, objetos[i].proporcion);
+        }
+        
+    printf("\n");
 
 	for (i=0; i<10; i++){  
 		if ((max_vol+objetos[i].vol)<=vol_mochi){
                 	max_vol = max_vol + objetos[i].vol;
-			max_precio = max_precio + objetos[i].valor;
-			printf("Objeto %d, volumen: %d, valor: %d\n", objetos[i].nroobjeto, objetos[i].vol, objetos[i].valor);
+			        max_precio = max_precio + objetos[i].valor;
+			        printf("Objeto %d, volumen: %d, valor: %d\n", objetos[i].nroobjeto, objetos[i].vol, objetos[i].valor);
 		}
 	} 
 	printf("Volumen: %d, precio: %d\n\n", max_vol, max_precio);
@@ -74,14 +79,14 @@ void main(){
 void calculaProporcion(){
 	int i;
 	for (i=0;i<10;i++)
-		objetos[i].proporcion = objetos[i].valor/objetos[i].vol;   
+		objetos[i].proporcion = (double)objetos[i].valor/(double)objetos[i].vol;   
 }
 
 void ordenaObjetos(){
 	int i,k;
 	struct objeto buffer;
 	for(i=0;i<9;i++){
-		for(k=1;k<10;k++){
+		for(k=i+1;k<10;k++){
 			if(objetos[i].proporcion < objetos[k].proporcion){
 				buffer.proporcion = objetos[i].proporcion;
 				buffer.vol = objetos[i].vol;

@@ -12,14 +12,14 @@ struct objeto {
 
 struct objeto objetos[10];
 
-void main(){
+int main(){
 	int control[10],solucion[10];
 	int max_vol = 4200;
 	double iteraciones = pow(2,10);
 	int i,k,m;
 	int max_encontrado,max_precio=0;
 
-	printf("\n");
+	
 
 	objetos[0].vol = 150;
 	objetos[0].valor = 20;
@@ -57,28 +57,30 @@ void main(){
 
 	for(k=0;k<iteraciones;k++){
 		aBinario(k,control);
-		if((controlaTira(control) < 4200) && (valorTira(solucion) <= valorTira(control))){
+		if((controlaTira(control) <=4200) && (valorTira(solucion) <= valorTira(control))){
 			max_encontrado = controlaTira(control);
 			for(m=0;m<10;m++){
 				solucion[m] = control[m];
-				if(control[m] == 1)
-					printf("Objeto %d, volumen: %d, valor: %d \n",m+1,objetos[m].vol,objetos[m].valor);
+				if(control[m] == 1){
+                              printf("Objeto %d, volumen: %d, valor: %d \n",m+1,objetos[m].vol,objetos[m].valor);                           
+                } 
 			}
 			printf("Volumen: %d precio: %d \n",max_encontrado,valorTira(solucion));
-			printf("\n");
+			printf("\n\n\n");
 		}
 		
 	}
+	return 0;
 }
 
 int valorTira(int control[10]){
-	int buffer = 0, i;
-	for(i=0;i<10;i++){
-		if(control[i] == 1){
-			buffer = buffer+objetos[i].valor;                 
-		}
-	}
-	return buffer;
+    int buffer = 0, i;
+    for(i=0;i<10;i++){
+           if(control[i] == 1){
+                      buffer = buffer+objetos[i].valor;                 
+           }     
+    }
+    return buffer;
 }
 int controlaTira(int control[10]){
 	int buffer = 0, i;
